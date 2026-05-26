@@ -37,5 +37,7 @@ namespace YP01
         public DbSet<UserBookCollections> UserBookCollections { get; set; }
         public DbSet<UserComplaints> UserComplaints { get; set; }
         public DbSet<UserRoles> UserRoles { get; set; }
+        public virtual DbSet<BookGenreMap> BookGenreMap { get; set; }
     }
+
 }
