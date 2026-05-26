@@ -1,0 +1,42 @@
+﻿<Page x:Class="YP01.Pages.AdminSub.UsersAdminPage"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="UsersAdminPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Новый пароль:" Margin="0,0,5,0" VerticalAlignment="Center"/>
+            <TextBox x:Name="tb_new_password" Width="150" Margin="0,0,5,0"/>
+            <Button Content="Сменить пароль" Click="btn_change_password_Click" Padding="10,5"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" x:Name="dg_users" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="dg_users_CellEditEnding" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding DisplayName}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="100" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Роль" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Path=DataContext.roles, RelativeSource={RelativeSource AncestorType=Page}}"
+                                      DisplayMemberPath="Name" SelectedValuePath="Id"
+                                      SelectedValue="{Binding Role, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectionChanged="role_cbb_SelectionChanged"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Замороженнно?" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="chb_is_frozen" IsChecked="{Binding IsFrozen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Click="chb_is_frozen_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

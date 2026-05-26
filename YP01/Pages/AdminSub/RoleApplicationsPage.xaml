@@ -1,0 +1,23 @@
+﻿<Page x:Class="YP01.Pages.AdminSub.RoleApplicationsPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="RoleApplicationsPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Принять" Click="btn_accept_Click" Padding="10,5"/>
+            <Button Content="Отклонить" Click="btn_reject_Click" Padding="10,5"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" x:Name="dg_applications" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пользователь" Binding="{Binding user_name}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Причина" Binding="{Binding reason}" Width="*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

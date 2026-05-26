@@ -1,0 +1,8 @@
+﻿<Page x:Class="YP01.Pages.FreezeWarningPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="FreezeWarningPage">
+    <Grid>
+        <TextBlock Text="Ваш аккаунт был заморожен"/>
+    </Grid>
+</Page>

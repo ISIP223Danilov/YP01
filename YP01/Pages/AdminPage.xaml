@@ -1,0 +1,24 @@
+﻿<Page x:Class="YP01.Pages.AdminPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="AdminPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Раздел администрирования: "/>
+            <ComboBox x:Name="cbb_admin_section" Width="200" SelectionChanged="cbb_admin_section_SelectionChanged">
+                <ComboBoxItem Content="Жалобы"/>
+                <ComboBoxItem Content="Заявки на разморозку"/>
+                <ComboBoxItem Content="Заявки на роль автора"/>
+                <ComboBoxItem Content="Замороженные элементы"/>
+                <ComboBoxItem Content="Пользователи"/>
+            </ComboBox>
+        </StackPanel>
+
+        <Frame Grid.Row="1" x:Name="fr_admin" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>

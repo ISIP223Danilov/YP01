@@ -1,0 +1,25 @@
+﻿<Page x:Class="YP01.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="MainPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#eee" BorderBrush="#ccc" BorderThickness="0,0,1,0">
+            <ItemsControl x:Name="sidebar_items_control">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Click="sidebar_btn_Click" Tag="{Binding page_uri}" ToolTip="{Binding title}" Background="Transparent" BorderThickness="0" Padding="10">
+                            <Image Source="{Binding image_uri}" Width="32" Height="32"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <Frame x:Name="fr_the_main" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>

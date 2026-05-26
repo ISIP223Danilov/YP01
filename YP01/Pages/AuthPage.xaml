@@ -1,0 +1,29 @@
+﻿<Page x:Class="YP01.Pages.AuthPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Авторизация/Регистрация">
+    <Grid>
+        <StackPanel Width="300">
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Content="Авторизация" Name="rb_login" IsChecked="True" Checked="mode_Checked"/>
+                <RadioButton Content="Регистрация" Name="rb_register" Checked="mode_Checked"/>
+            </StackPanel>
+
+            <TextBlock Text="Логин" />
+            <TextBox x:Name="tb_login"/>
+
+            <TextBlock Text="Пароль" />
+            <PasswordBox x:Name="pb_password"/>
+
+            <StackPanel x:Name="sp_register_fields" Visibility="Collapsed">
+                <TextBlock Text="Email" />
+                <TextBox x:Name="tb_email"/>
+
+                <TextBlock Text="Отображаемое имя" />
+                <TextBox x:Name="tb_display_name"/>
+            </StackPanel>
+
+            <Button Content="Подтвердить" Click="btn_submit_Click" Height="30"/>
+        </StackPanel>
+    </Grid>
+</Page>

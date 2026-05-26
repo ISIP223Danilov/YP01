@@ -1,0 +1,40 @@
+﻿<Page x:Class="YP01.Pages.AuthorPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="AuthorPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Добавить книгу" Click="btn_add_book_Click" Padding="10,5"/>
+            <Button Content="Жанры" Click="btn_edit_genres_Click" Padding="10,5" />
+            <Button Content="Оспорить заморозку" Click="btn_challenge_freeze_Click" Padding="10,5" />
+            <TextBox x:Name="tb_against" Width="100"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" x:Name="dg_published_books" AutoGenerateColumns="False"
+                  CanUserAddRows="False" CellEditEnding="dg_books_CellEditEnding"
+                  SelectionChanged="dg_books_SelectionChanged" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="200"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+                <DataGridTextColumn Header="Обложка (путь)" Binding="{Binding CoverPath}" Width="150"/>
+                <DataGridCheckBoxColumn Header="Заморожена?" IsReadOnly="True" Binding="{Binding IsFrozen}" Width="50"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <TextBlock Text="Содержимое книги"/>
+            <Button Content="Сохранить содержимое" Click="btn_save_content_Click" Padding="10,2"/>
+        </StackPanel>
+
+        <TextBox Grid.Row="5" x:Name="tb_book_content" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</Page>

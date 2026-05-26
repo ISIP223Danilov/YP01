@@ -1,0 +1,56 @@
+﻿<Page x:Class="YP01.Pages.CatalogPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Каталог книг">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0">
+            <TextBlock Text="Название:"/>
+            <TextBox x:Name="tb_search_title" Width="150" TextChanged="filter_Changed"/>
+
+            <TextBlock Text="Автор:"/>
+            <TextBox x:Name="tb_search_author" Width="150" TextChanged="filter_Changed"/>
+
+            <TextBlock Text="Сортировка:"/>
+            <ComboBox x:Name="cbb_sort" Width="120" SelectionChanged="filter_Changed">
+                <ComboBoxItem Content="По умолчанию" IsSelected="True"/>
+                <ComboBoxItem Content="По названию"/>
+                <ComboBoxItem Content="По оценке"/>
+            </ComboBox>
+
+            <TextBlock Text="Жанр:"/>
+            <ComboBox x:Name="cbb_genre" Width="120" SelectionChanged="filter_Changed">
+            </ComboBox>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="1">
+            <Button Content="Открыть книгу" Width="120" Click="btn_open_book_Click"/>
+            <TextBlock Text="Список:"/>
+            <ComboBox x:Name="cbb_reading_section" Width="120"/>
+            <Button Content="Добавить/Переместить в список" Click="btn_add_to_list_Click"/>
+        </WrapPanel>
+
+        <ListBox x:Name="dg_books" Grid.Row="2" SelectionMode="Single">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="{Binding cover_path}" Width="50" Height="70" Stretch="Uniform" />
+                        <TextBlock Text="{Binding title}" />
+                        <TextBlock Text="{Binding author_name}" />
+                        <TextBlock Text="{Binding average_rating}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>
