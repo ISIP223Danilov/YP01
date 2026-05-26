@@ -1,0 +1,23 @@
+﻿<Window x:Class="YP01.GenreEditWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Жанры" Height="300" Width="200" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0">
+            <ItemsControl x:Name="genres_items_control">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding name}" IsChecked="{Binding is_selected}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Button Grid.Row="1" Content="Сохранить" Click="btn_save_Click" Padding="5"/>
+    </Grid>
+</Window>

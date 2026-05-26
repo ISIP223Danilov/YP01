@@ -72,8 +72,12 @@
     <Compile Include="ComplaintCategories.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Core.cs" />
     <Compile Include="GenreCatalog.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenreEditWindow.xaml.cs">
+      <DependentUpon>GenreEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LibraryBooks.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -146,6 +150,10 @@
     <Compile Include="UserRoles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="GenreEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
