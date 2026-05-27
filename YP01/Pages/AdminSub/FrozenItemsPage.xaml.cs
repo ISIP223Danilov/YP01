@@ -117,6 +117,11 @@ namespace YP01.Pages.AdminSub
                 load_data(); // Обновляем список
             }
         }
+
+        private void dg_frozen_items_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     public class FrozenItemDisplay

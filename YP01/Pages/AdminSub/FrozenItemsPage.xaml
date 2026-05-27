@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="FrozenItemsPage">
     <Grid>
-        <DataGrid x:Name="dg_frozen_items" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="dg_frozen_items" AutoGenerateColumns="False" CanUserAddRows="False" Margin="-1,0,1,0" SelectionChanged="dg_frozen_items_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Тип" Binding="{Binding item_type}" Width="100" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding title}" Width="150" IsReadOnly="True"/>
