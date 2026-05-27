@@ -53,7 +53,7 @@ namespace YP01.Pages
             // РЕЖИМ ВХОДА
             if (rb_login.IsChecked == true)
             {
-                // Исправлено: Core.db.User → Core.db.Accounts
+                // Исправлено: Core.db.User - Core.db.Accounts
                 var user = Core.db.Accounts.FirstOrDefault(u => u.Login == login && u.Password == password);
                 if (user != null)
                 {
