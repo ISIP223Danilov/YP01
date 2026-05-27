@@ -24,12 +24,11 @@ namespace YP01.Pages
 
             var items = new List<SidebarItem>();
 
-            var default_image = new Uri("https://coinsbolhov.ru/upload/cache_images/registered/28/23/282320/282320_1073_1073.jpg");
+            // ТВОЯ ЛОКАЛЬНАЯ КАРТИНКА (лежит в папке Images)
+            var default_image = new Uri("pack://application:,,,/image/popa.png", UriKind.Absolute);
 
             items.Add(new SidebarItem { title = "Каталог книг", page_uri = new Uri("Pages/CatalogPage.xaml", UriKind.Relative), image_uri = default_image });
             items.Add(new SidebarItem { title = "Списки книг", page_uri = new Uri("Pages/BookListsPage.xaml", UriKind.Relative), image_uri = default_image });
-
-            // НОВЫЙ ПУНКТ - Оставить отзыв (доступен всем авторизованным)
             items.Add(new SidebarItem { title = "Оставить отзыв", page_uri = new Uri("Pages/LeaveReviewPage.xaml", UriKind.Relative), image_uri = default_image });
 
             if (Core.current_user != null)

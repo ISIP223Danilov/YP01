@@ -285,6 +285,7 @@
   <ItemGroup>
     <Content Include="EntityFramework %282%29.dll" />
     <Content Include="EntityFramework.SqlServer.dll" />
+    <Resource Include="image\popa.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

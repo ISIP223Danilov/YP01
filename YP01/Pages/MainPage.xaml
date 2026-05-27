@@ -5,31 +5,31 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Левая панель с текстовыми кнопками -->
+        
         <Border Grid.Column="0" Background="#2C3E50">
             <ItemsControl x:Name="sidebar_items_control">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Click="sidebar_btn_Click" 
                                 Tag="{Binding page_uri}" 
-                                Content="{Binding title}"
+                                ToolTip="{Binding title}"
                                 Background="Transparent" 
                                 BorderThickness="0" 
-                                Padding="15,12"
                                 Margin="0"
-                                Foreground="White"
-                                FontSize="14"
-                                HorizontalAlignment="Stretch"
+                                Padding="0"
+                                Width="100"
+                                Height="70"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Cursor="Hand">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="0"/>
-                                </Style>
-                            </Button.Resources>
+                            <Image Source="{Binding image_uri}" 
+                                   Width="100" 
+                                   Height="100"
+                                   Stretch="Uniform"/>
                         </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
