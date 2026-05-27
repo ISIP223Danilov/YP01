@@ -166,5 +166,10 @@ namespace YP01.Pages
                 MessageBox.Show("Выберите книгу и новый список.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void filter_Changed(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

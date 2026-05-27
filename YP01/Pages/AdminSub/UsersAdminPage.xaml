@@ -10,8 +10,8 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="Новый пароль:" Margin="0,0,5,0" VerticalAlignment="Center"/>
-            <TextBox x:Name="tb_new_password" Width="150" Margin="0,0,5,0"/>
-            <Button Content="Сменить пароль" Click="btn_change_password_Click" Padding="10,5"/>
+            <TextBox x:Name="tb_new_password" Width="191" Margin="0,0,5,0"/>
+            <Button Content="Сменить пароль" Click="btn_change_password_Click" Padding="10,5" Width="265"/>
         </StackPanel>
 
         <DataGrid Grid.Row="1" x:Name="dg_users" AutoGenerateColumns="False" CanUserAddRows="False" CellEditEnding="dg_users_CellEditEnding" SelectionMode="Single">

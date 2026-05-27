@@ -13,10 +13,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Content="Добавить книгу" Click="btn_add_book_Click" Padding="10,5"/>
-            <Button Content="Жанры" Click="btn_edit_genres_Click" Padding="10,5" />
-            <Button Content="Оспорить заморозку" Click="btn_challenge_freeze_Click" Padding="10,5" />
-            <TextBox x:Name="tb_against" Width="100"/>
+            <Button Content="Добавить книгу" Click="btn_add_book_Click" Padding="10,5" Width="208"/>
+            <Button Content="Жанры" Click="btn_edit_genres_Click" Padding="10,5" Width="174" />
+            <Button Content="Оспорить заморозку" Click="btn_challenge_freeze_Click" Padding="10,5" Width="209" />
+            <TextBox x:Name="tb_against" Width="95"/>
         </StackPanel>
 
         <DataGrid Grid.Row="1" x:Name="dg_published_books" AutoGenerateColumns="False"
