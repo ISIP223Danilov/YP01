@@ -77,14 +77,14 @@ namespace YP01.Pages
                     return;
                 }
 
-                // Исправлено: Core.db.User → Core.db.Accounts
+                // Исправлено: Core.db.User - Core.db.Accounts
                 if (Core.db.Accounts.Any(u => u.Login == login))
                 {
                     MessageBox.Show("Пользователь с таким логином уже существует.");
                     return;
                 }
 
-                // Исправлено: User → Accounts
+                // Исправлено: User - Accounts
                 var new_user = new Accounts
                 {
                     Login = login,
