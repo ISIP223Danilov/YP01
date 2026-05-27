@@ -32,7 +32,7 @@ namespace YP01.Pages
         {
             if (Core.current_user == null) return;
 
-            // Исправлено: Book → LibraryBooks, Author → AuthorId
+            // Исправлено: Book - LibraryBooks, Author - AuthorId
             dg_published_books.ItemsSource = Core.db.LibraryBooks
                 .Where(b => b.AuthorId == Core.current_user.Id)
                 .ToList();
@@ -42,7 +42,7 @@ namespace YP01.Pages
         {
             if (Core.current_user == null) return;
 
-            // Исправлено: Book → LibraryBooks, поля под твою БД
+            // Исправлено: Book - LibraryBooks
             var new_book = new LibraryBooks
             {
                 AuthorId = Core.current_user.Id,
@@ -77,7 +77,7 @@ namespace YP01.Pages
             if (data_grid?.SelectedItem is LibraryBooks book)
             {
                 _selected_book = book;
-                // Исправлено: ContentText → Content
+                // Исправлено: ContentText - Content
                 tb_book_content.Text = book.Content ?? "";
             }
         }
@@ -86,7 +86,7 @@ namespace YP01.Pages
         {
             if (_selected_book != null)
             {
-                // Исправлено: ContentText → Content
+                // Исправлено: ContentText - Content
                 _selected_book.Content = tb_book_content.Text;
                 Core.db.SaveChanges();
                 MessageBox.Show("Содержимое сохранено.");
@@ -119,7 +119,7 @@ namespace YP01.Pages
                     return;
                 }
 
-                // Исправлено: UnfreezeRequest → ServiceRequests (RequestTypeId = 3 для разморозки книги)
+                // Исправлено: UnfreezeRequest - ServiceRequests (RequestTypeId = 3 для разморозки книги)
                 var request = new ServiceRequests
                 {
                     UserId = Core.current_user.Id,

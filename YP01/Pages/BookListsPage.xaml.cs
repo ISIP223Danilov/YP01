@@ -28,7 +28,7 @@ namespace YP01.Pages
 
         private void load_data()
         {
-            // Исправлено: ReadingSection → CollectionTypes, Name → Dname
+            // Исправлено: ReadingSection - CollectionTypes, Name - Dname
             var sections = Core.db.CollectionTypes.ToList();
             cbb_current_section.ItemsSource = sections;
             cbb_current_section.DisplayMemberPath = "Dname";
@@ -38,7 +38,7 @@ namespace YP01.Pages
             cbb_target_section.DisplayMemberPath = "Dname";
             if (sections.Any()) cbb_target_section.SelectedIndex = 0;
 
-            // Исправлено: Genre → GenreCatalog, Name → Dname
+            // Исправлено: Genre - GenreCatalog, Name - Dname
             var genres = Core.db.GenreCatalog.ToList();
             var all_genre = new GenreCatalog { Id = 0, Dname = "Все жанры" };
             genres.Insert(0, all_genre);
@@ -70,11 +70,11 @@ namespace YP01.Pages
             }
 
             int current_user_id = Core.current_user.Id;
-            // Исправлено: ReadingSection → CollectionTypes
+            // Исправлено: ReadingSection - CollectionTypes
             int selected_section_id = ((CollectionTypes)cbb_current_section.SelectedItem).Id;
 
-            // Исправлено: ReadingList → UserBookCollections, rl.User → rl.UserId, rl.Section → rl.CollectionTypeId
-            // rl.Book1 → rl.LibraryBooks
+            // Исправлено: ReadingList - UserBookCollections, rl.User - rl.UserId, rl.Section - rl.CollectionTypeId
+            // rl.Book1 - rl.LibraryBooks
             var query = Core.db.UserBookCollections
                 .Where(rl => rl.UserId == current_user_id && rl.CollectionTypeId == selected_section_id && !rl.LibraryBooks.IsFrozen)
                 .Select(rl => rl.LibraryBooks)
@@ -83,13 +83,13 @@ namespace YP01.Pages
             if (!string.IsNullOrWhiteSpace(tb_search_title.Text))
             {
                 var search_title = tb_search_title.Text.ToLower();
-                query = query.Where(b => b.Dname.ToLower().Contains(search_title));  // Title → Dname
+                query = query.Where(b => b.Dname.ToLower().Contains(search_title));  // Title - Dname
             }
 
             if (!string.IsNullOrWhiteSpace(tb_search_author.Text))
             {
                 var search_author = tb_search_author.Text.ToLower();
-                query = query.Where(b => b.Accounts.DisplayName.ToLower().Contains(search_author));  // b.User → b.Accounts
+                query = query.Where(b => b.Accounts.DisplayName.ToLower().Contains(search_author));  // b.User - b.Accounts
             }
 
             // Исправлено: фильтрация по жанрам через BookGenreMap
@@ -105,8 +105,8 @@ namespace YP01.Pages
             var books_list = query.ToList().Select(b => new BookDisplayItem
             {
                 book_obj = b,
-                title = b.Dname,  // Title → Dname
-                author_name = b.Accounts?.DisplayName ?? "Неизвестный автор",  // b.User → b.Accounts
+                title = b.Dname,  // Title - Dname
+                author_name = b.Accounts?.DisplayName ?? "Неизвестный автор",  // b.User - b.Accounts
                 cover_path = string.IsNullOrWhiteSpace(b.CoveringUri) ? "/Images/placeholder.png" : b.CoveringUri,  // CoverPath → CoveringUri
                 average_rating = b.ReaderReviews.Any() ? Math.Round(b.ReaderReviews.Average(r => r.Rating), 1) : 0  // b.Review → b.ReaderReviews
             }).ToList();
@@ -146,7 +146,7 @@ namespace YP01.Pages
             if (dg_books.SelectedItem is BookDisplayItem selected_item && cbb_target_section.SelectedItem is CollectionTypes selected_section)
             {
                 var book = selected_item.book_obj;
-                // Исправлено: ReadingList → UserBookCollections, rl.User → rl.UserId, rl.Book → rl.BookId
+                // Исправлено: ReadingList - UserBookCollections, rl.User - rl.UserId, rl.Book - rl.BookId
                 var existing_entry = Core.db.UserBookCollections
                     .FirstOrDefault(rl => rl.UserId == Core.current_user.Id && rl.BookId == book.Id);
 
