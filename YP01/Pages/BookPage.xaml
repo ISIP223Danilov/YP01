@@ -44,12 +44,12 @@
                     </WrapPanel>
                     <WrapPanel>
                         <TextBox x:Name="tb_complaint" Width="400" Height="30" Margin="0,0,10,0" Padding="5"/>
-                        <Button Content="📨 Отправить жалобу" Width="150" Click="btn_submit_complaint_Click" Height="30"/>
+                        <Button Content="Отправить жалобу" Width="150" Click="btn_submit_complaint_Click" Height="30"/>
                     </WrapPanel>
                 </StackPanel>
             </Border>
 
-            <!-- ========== БЛОК ОТЗЫВА (ДОБАВЛЕН) ========== -->
+            
             <Border Grid.Row="3" Background="#F9F9F9" CornerRadius="8" Padding="10" Margin="0,0,0,15">
                 <StackPanel>
                     <TextBlock Text="Оставить отзыв" FontWeight="Bold" Margin="0,0,0,10"/>
@@ -80,7 +80,7 @@
                 <TextBlock Text="Отзывы" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
 
                 <WrapPanel Margin="0,0,0,10">
-                    <CheckBox x:Name="chb_freeze_review" Content="🔒 Заморозить отзыв" Visibility="Collapsed" 
+                    <CheckBox x:Name="chb_freeze_review" Content="Заморозить отзыв" Visibility="Collapsed" 
                               Checked="freeze_review_chb_Checked" Unchecked="freeze_review_chb_Unchecked"/>
                 </WrapPanel>
 
