@@ -1,23 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace YP01.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для BookPage.xaml
-    /// </summary>
     public partial class BookPage : Page
     {
         private LibraryBooks _current_book;
@@ -38,12 +26,9 @@ namespace YP01.Pages
             tbl_author.Text = $"Автор: {_current_book.Accounts?.DisplayName ?? "Неизвестный"}";
             tbl_description.Text = _current_book.Description;
 
-            // ИСПРАВЛЕНО: получаем жанры через BookGenreMap
-            var bookGenres = Core.db.BookGenreMap.Where(bg => bg.BookId == _current_book.Id).Select(bg => bg.GenreCatalog).ToList();
-            if (bookGenres.Any())
-            {
-                tbl_genres.Text = "Жанры: " + string.Join(", ", bookGenres.Select(g => g.Dname));
-            }
+            // Жанры временно отключены (проблема с BookGenreMap)
+            // TODO: починить после настройки EF
+            tbl_genres.Text = "Жанры: загрузка временно отключена";
 
             try
             {
@@ -170,12 +155,6 @@ namespace YP01.Pages
                 return;
             }
 
-            if (Core.db.ReaderReviews.Any(r => r.UserId == Core.current_user.Id && r.BookId == _current_book.Id))
-            {
-                MessageBox.Show("У вас уже есть отзыв к этой книге.");
-                return;
-            }
-
             var text = tb_review.Text.Trim();
             if (string.IsNullOrWhiteSpace(text))
             {
@@ -185,20 +164,44 @@ namespace YP01.Pages
 
             if (cbb_rating.SelectedItem is ComboBoxItem selected_item && int.TryParse(selected_item.Content.ToString(), out int rating))
             {
-                var new_review = new ReaderReviews
-                {
-                    UserId = Core.current_user.Id,
-                    BookId = _current_book.Id,
-                    Content = text,
-                    Rating = rating,
-                    Datetime = DateTime.Now
-                };
+                var existingReview = Core.db.ReaderReviews
+                    .FirstOrDefault(r => r.UserId == Core.current_user.Id && r.BookId == _current_book.Id);
 
-                Core.db.ReaderReviews.Add(new_review);
-                Core.db.SaveChanges();
-                MessageBox.Show("Отзыв добавлен.");
-                tb_review.Text = "";
-                load_reviews();
+                if (existingReview != null)
+                {
+                    existingReview.Content = text;
+                    existingReview.Rating = rating;
+                    existingReview.Datetime = DateTime.Now;
+                    MessageBox.Show("Ваш отзыв обновлён.");
+                }
+                else
+                {
+                    var new_review = new ReaderReviews
+                    {
+                        UserId = Core.current_user.Id,
+                        BookId = _current_book.Id,
+                        Content = text,
+                        Rating = rating,
+                        Datetime = DateTime.Now
+                    };
+                    Core.db.ReaderReviews.Add(new_review);
+                    MessageBox.Show("Отзыв добавлен.");
+                }
+
+                try
+                {
+                    Core.db.SaveChanges();
+                    tb_review.Text = "";
+                    load_reviews();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при сохранении отзыва: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите оценку.");
             }
         }
 

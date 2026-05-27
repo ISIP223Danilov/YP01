@@ -14,7 +14,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- Блок 1: Обложка + информация о книге -->
+            <!-- Обложка + информация -->
             <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,15">
                 <Image x:Name="img_book_cover" Width="150" Height="200" Stretch="Uniform" Margin="0,0,15,0"/>
                 <StackPanel>
@@ -25,7 +25,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <!-- Блок 2: Кнопки действий -->
+            <!-- Кнопки -->
             <WrapPanel Grid.Row="1" Margin="0,0,0,15">
                 <Button Content="Читать" Width="100" Click="btn_read_Click" Height="35" Margin="0,0,10,0"/>
                 <CheckBox x:Name="chb_freeze_book" Content="Заморозить книгу" Visibility="Collapsed" 
@@ -33,26 +33,29 @@
                           VerticalAlignment="Center"/>
             </WrapPanel>
 
-            <!-- Блок 3: Жалоба -->
-            <GroupBox Grid.Row="2" Header="Пожаловаться" Margin="0,0,0,15" Padding="10">
+            <!-- Жалоба -->
+            <Border Grid.Row="2" Background="#F9F9F9" CornerRadius="8" Padding="10" Margin="0,0,0,15">
                 <StackPanel>
+                    <TextBlock Text="Пожаловаться" FontWeight="Bold" Margin="0,0,0,10"/>
                     <WrapPanel Margin="0,0,0,10">
                         <RadioButton x:Name="rb_complaint_book" Content="На книгу" IsChecked="True" Margin="0,0,15,0"/>
                         <RadioButton x:Name="rb_complaint_author" Content="На автора" Margin="0,0,15,0"/>
-                        <RadioButton x:Name="rb_complaint_review" Content="На отзыв"/>
+                        <RadioButton x:Name="rb_complaint_review" Content="На отзыв" Margin="0,0,15,0"/>
                     </WrapPanel>
                     <WrapPanel>
                         <TextBox x:Name="tb_complaint" Width="400" Height="30" Margin="0,0,10,0" Padding="5"/>
                         <Button Content="📨 Отправить жалобу" Width="150" Click="btn_submit_complaint_Click" Height="30"/>
                     </WrapPanel>
                 </StackPanel>
-            </GroupBox>
+            </Border>
 
-            <!-- Блок 4: Отзыв -->
-            <GroupBox Grid.Row="3" Header="Оставить отзыв" Margin="0,0,0,15" Padding="10">
+            <!-- ========== БЛОК ОТЗЫВА (ДОБАВЛЕН) ========== -->
+            <Border Grid.Row="3" Background="#F9F9F9" CornerRadius="8" Padding="10" Margin="0,0,0,15">
                 <StackPanel>
+                    <TextBlock Text="Оставить отзыв" FontWeight="Bold" Margin="0,0,0,10"/>
                     <WrapPanel Margin="0,0,0,10">
-                        <TextBox x:Name="tb_review" Width="400" Height="60" Margin="0,0,10,0" Padding="5" TextWrapping="Wrap"/>
+                        <TextBox x:Name="tb_review" Width="400" Height="60" Margin="0,0,10,0" 
+                                 Padding="5" TextWrapping="Wrap" ToolTip="Введите ваш отзыв"/>
                         <TextBlock Text="Оценка:" VerticalAlignment="Center" Margin="0,0,10,0"/>
                         <ComboBox x:Name="cbb_rating" Width="60" Height="30" Margin="0,0,10,0">
                             <ComboBoxItem Content="1"/>
@@ -66,12 +69,13 @@
                             <ComboBoxItem Content="9"/>
                             <ComboBoxItem Content="10" IsSelected="True"/>
                         </ComboBox>
-                        <Button Content="Оставить отзыв" Width="150" Click="btn_submit_review_Click" Height="35"/>
+                        <Button x:Name="btn_submit_review" Content="Оставить отзыв" 
+                                Width="150" Click="btn_submit_review_Click" Height="35"/>
                     </WrapPanel>
                 </StackPanel>
-            </GroupBox>
+            </Border>
 
-            <!-- Блок 5: Список отзывов -->
+            <!-- Отзывы -->
             <StackPanel Grid.Row="4">
                 <TextBlock Text="Отзывы" FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
 

@@ -24,7 +24,7 @@ namespace YP01
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+        
         public DbSet<Accounts> Accounts { get; set; }
         public DbSet<CollectionTypes> CollectionTypes { get; set; }
         public DbSet<ComplaintCategories> ComplaintCategories { get; set; }
