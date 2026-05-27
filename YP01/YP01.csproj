@@ -90,19 +90,19 @@
     <Compile Include="Pages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminSub\ComplaintsPage.xaml.cs">
+    <Compile Include="Pages\gagGggADMIN\ComplaintsPage.xaml.cs">
       <DependentUpon>ComplaintsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminSub\FrozenItemsPage.xaml.cs">
-      <DependentUpon>FrozenItemsPage.xaml</DependentUpon>
+    <Compile Include="Pages\gagGggADMIN\FrozennnPage.xaml.cs">
+      <DependentUpon>FrozennnPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminSub\RoleApplicationsPage.xaml.cs">
+    <Compile Include="Pages\gagGggADMIN\RoleApplicationsPage.xaml.cs">
       <DependentUpon>RoleApplicationsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminSub\UnfreezeRequestsPage.xaml.cs">
+    <Compile Include="Pages\gagGggADMIN\UnfreezeRequestsPage.xaml.cs">
       <DependentUpon>UnfreezeRequestsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminSub\UsersAdminPage.xaml.cs">
+    <Compile Include="Pages\gagGggADMIN\UsersAdminPage.xaml.cs">
       <DependentUpon>UsersAdminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthorPage.xaml.cs">
@@ -176,23 +176,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AdminSub\ComplaintsPage.xaml">
+    <Page Include="Pages\gagGggADMIN\ComplaintsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AdminSub\FrozenItemsPage.xaml">
+    <Page Include="Pages\gagGggADMIN\FrozennnPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AdminSub\RoleApplicationsPage.xaml">
+    <Page Include="Pages\gagGggADMIN\RoleApplicationsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AdminSub\UnfreezeRequestsPage.xaml">
+    <Page Include="Pages\gagGggADMIN\UnfreezeRequestsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AdminSub\UsersAdminPage.xaml">
+    <Page Include="Pages\gagGggADMIN\UsersAdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
