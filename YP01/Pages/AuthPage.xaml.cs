@@ -18,6 +18,10 @@ namespace YP01.Pages
     /// <summary>
     /// Логика взаимодействия для AuthPage.xaml
     /// </summary>
+    /// /// Выполняет авторизацию пользователя в системе
+    /// /// Объект типа Accounts, если пользователь найден и пароль верен,
+    /// иначе возвращает null
+
     public partial class AuthPage : Page
     {
         public AuthPage()
